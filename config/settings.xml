@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <servers>
+    <server>
+      <id>git-scm-server</id>
+      <username>${env.GIT_REPO_USER}</username>
+      <password>${env.GIT_REPO_PASS}</password>
+    </server>
+    <server>
+      <id>multi-git-server</id>
+      <username>${env.GIT_REPO_USER}</username>
+      <privateKey>${env.GIT_REPO_PRV}</privateKey>
+    </server>
+    <server>
+      <id>github</id>
+      <username>${env.MAVEN_REPO_USER}</username>
+      <password>${env.MAVEN_REPO_PASS}</password>
+    </server>
+  </servers>
+  <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>central</mirrorOf>
+      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+    </mirror>
+  </mirrors>
+  <profiles>
+    <profile>
+      <id>github</id>
+      <repositories>
+        <repository>
+          <id>quantum1tech-nexus</id>
+          <name>Quantum1tech nexus</name>
+          <url>${env.MAVEN_REPO_URL}/cuteJ/ot-server-parent</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>quantum1tech-nexus</id>
+          <name>Quantum1tech nexus</name>
+          <url>${env.MAVEN_REPO_URL}/cuteJ/ot-server-parent</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>github</activeProfile>
+  </activeProfiles>
+</settings>
