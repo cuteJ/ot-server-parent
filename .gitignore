@@ -1,8 +1,7 @@
-/target/
+**/target/
 !.mvn/wrapper/maven-wrapper.jar
 logs
 *.log
-logs
 *.class
 
 ### STS ###
@@ -33,7 +32,6 @@ hs_err_pid*
 
 ### Eclipse ###
 *.pydevproject
-.project
 .metadata
 bin/**
 tmp/**
@@ -43,7 +41,6 @@ tmp/**/*
 *.swp
 *~.nib
 local.properties
-.classpath
 .settings/
 .loadpath
 
